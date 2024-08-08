@@ -1,24 +1,40 @@
-<i class="pi pi-check"></i>
-<i class="pi pi-times"></i>
-<span class="pi pi-search"></span>
-<span class="pi pi-user"></span>
+<p-panel header="ExportarQrC">
+  <div class="panel">
+    <div class="panel-input_main">
 
-<br>
-<br>
+      <div class="panel-input_section">
+        <span>
+          <label for="MCI">Texto MCI</label>
+        </span>
+        <p-inputGroup class="panel-inputgroup">
+          <p-inputGroupAddon>
+              <i class="pi pi-search"></i>
+          </p-inputGroupAddon>
+          <input pInputText placeholder="MCI" style="width: 100%;" />
+        </p-inputGroup>
+      </div>
 
-<p-inputGroup class="w-full md:w-30rem">
-  <p-inputGroupAddon>
-      <i class="pi pi-clock"></i>
-  </p-inputGroupAddon>
-  <p-inputGroupAddon>
-      <i class="pi pi-star-fill"></i>
-  </p-inputGroupAddon>
-  <input type="text" pInputText placeholder="Price" />
-  <p-inputGroupAddon>$</p-inputGroupAddon>
-  <p-inputGroupAddon>.00</p-inputGroupAddon>
-</p-inputGroup>
+      <div class="panel-input_section">
+        <span>
+          <label for="DICT">Texto DICT</label>
+        </span>
+        <p-inputGroup class="panel-inputgroup">
+          <p-inputGroupAddon >
+              <i class="pi pi-search"></i>
+          </p-inputGroupAddon>
+          <input pInputText placeholder="Dict" style="width: 100%;" />
+        </p-inputGroup>
+      </div>
+    </div>
 
-<p-inputGroup>
-  <input type="text" pInputText placeholder="Keyword" />
-  <button type="button" pButton icon="pi pi-search" class="p-button-warning"></button>
-</p-inputGroup>
+    <div class="panel-button_section">
+      <button
+      pButton
+      pRipple
+      label="Limpar"
+      class="p-button-success">
+    </button>
+    <p-button label="Submit"></p-button>
+    </div>
+  </div>
+</p-panel>

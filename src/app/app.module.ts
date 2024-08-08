@@ -14,6 +14,7 @@ import { InputGroupAddonModule } from 'primeng/inputgroupaddon';
 import { InputTextModule } from 'primeng/inputtext';
 import { IconFieldModule } from 'primeng/iconfield';
 import { InputIconModule } from 'primeng/inputicon';
+import { PanelModule } from 'primeng/panel';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import { InputIconModule } from 'primeng/inputicon';
     InputGroupAddonModule,
     InputTextModule,
     IconFieldModule,
-    InputIconModule
+    InputIconModule,
+    PanelModule
   ],
   providers: [
     provideClientHydration()
