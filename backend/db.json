@@ -1,0 +1,19 @@
+{
+  "gostos": [
+    {
+      "serie": "gotham",
+      "jogo": "arkham",
+      "id": "4708"
+    },
+    {
+      "serie": "arcane",
+      "jogo": "league of legends",
+      "id": "082b"
+    },
+    {
+      "id": "8882",
+      "serie": "fallout",
+      "jogo": "fallout new vegas"
+    }
+  ]
+}

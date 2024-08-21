@@ -15,6 +15,7 @@ import { InputTextModule } from 'primeng/inputtext';
 import { IconFieldModule } from 'primeng/iconfield';
 import { InputIconModule } from 'primeng/inputicon';
 import { PanelModule } from 'primeng/panel';
+import { provideHttpClient } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -35,6 +36,7 @@ import { PanelModule } from 'primeng/panel';
     PanelModule
   ],
   providers: [
+    provideHttpClient(),
     provideClientHydration()
   ],
   bootstrap: [AppComponent]

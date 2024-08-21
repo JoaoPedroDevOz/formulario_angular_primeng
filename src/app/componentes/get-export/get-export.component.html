@@ -4,25 +4,31 @@
 
       <div class="panel-input_section">
         <span>
-          <label for="MCI">Texto MCI</label>
+          <label for="Serie">Série Favorita</label>
         </span>
         <p-inputGroup class="panel-inputgroup">
           <p-inputGroupAddon>
               <i class="pi pi-search"></i>
           </p-inputGroupAddon>
-          <input pInputText placeholder="MCI" style="width: 100%;" />
+          <input
+          pInputText
+          [(ngModel)]="gostos.serie"
+          placeholder="Série"
+          style="width: 100%;" />
         </p-inputGroup>
       </div>
 
       <div class="panel-input_section">
         <span>
-          <label for="DICT">Texto DICT</label>
+          <label for="Jogo">Jogo Favorito</label>
         </span>
         <p-inputGroup class="panel-inputgroup">
           <p-inputGroupAddon >
               <i class="pi pi-search"></i>
           </p-inputGroupAddon>
-          <input pInputText placeholder="Dict" style="width: 100%;" />
+          <input pInputText
+          [(ngModel)]="gostos.jogo"
+          placeholder="Jogo" style="width: 100%;" />
         </p-inputGroup>
       </div>
     </div>
@@ -31,10 +37,19 @@
       <button
       pButton
       pRipple
-      label="Limpar"
-      class="p-button-success">
+      (click)="limpar()"
+      label="Limpar">
     </button>
-    <p-button label="Submit"></p-button>
+    <p-button
+    (onClick)="adicionar()"
+    label="Submit"></p-button>
     </div>
   </div>
+
+  <p-panel>
+    <div class="panel-input_section" *ngFor="let gostos of listaGostos">
+      <p class="serie">{{ gostos.serie }}</p>
+      <p class="jogo">{{ gostos.jogo }}</p>
+    </div>
+  </p-panel>p-panel>
 </p-panel>
