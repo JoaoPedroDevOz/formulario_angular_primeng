@@ -57,5 +57,12 @@
       <p class="serie">{{ gostos.serie }}</p>
       <p class="jogo">{{ gostos.jogo }}</p>
     </div>
-  </p-panel>p-panel>
+  </p-panel>>
+
+  <div>
+    <p *ngIf="gostos.jogo; else gostosSerieVld"> Jogo: {{ gostos.jogo }}</p>
+    <ng-template #gostosSerieVld>
+      <p> Série: {{ gostos.serie }}</p>
+    </ng-template>
+  </div>
 </p-panel>
