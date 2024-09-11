@@ -1,11 +1,11 @@
 export interface Gosto {
-  serie: string,
-  jogo: string
+  serie?: number,
+  jogo?: string,
 }
 
 export interface GetRequest {
   serie?: number
-  nome: string
+  nome: string,
 }
 
 export interface Cartas {

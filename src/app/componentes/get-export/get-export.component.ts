@@ -1,9 +1,7 @@
-import { Component, Input, OnInit } from '@angular/core';
-import { threadId } from 'node:worker_threads';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { numberValidator } from '../../utils/validmci';
+import { Component, Input, numberAttribute, OnInit } from '@angular/core';
 import { Cartas, GetRequest, Gosto } from '../../../gosto';
 import { QrcExportService } from '../../services/qrc-export.service';
+import { Message } from 'primeng/api';
 @Component({
   selector: 'app-get-export',
   templateUrl: './get-export.component.html',
@@ -11,7 +9,7 @@ import { QrcExportService } from '../../services/qrc-export.service';
 })
 export class GetExportComponent implements OnInit {
   gostos: Gosto = {
-    serie: '',
+    serie: undefined,
     jogo: ''
   }
 
@@ -21,26 +19,42 @@ export class GetExportComponent implements OnInit {
     baralho: ''
   }
 
-  obj: GetRequest = {
-    nome: '',
-    serie: undefined
+  constructor() {}
+    opMessage: Message[] = []
+
+  verifyInputs(): boolean | void {
+    let teste = true
+    if (this.gostos.jogo && this.gostos.serie) {
+      alert("dois inputs")
+      return
+    }
+
+    if (!this.gostos.jogo && !this.gostos.serie) {
+      alert("nenhum input")
+      return
+    }
+
+    if (isNaN(this.gostos.serie ?? 0)) {
+      this.msgAlert('Não é permitido')
+    }
+
+
+    console.log(this.gostos);
   }
 
-  constructor(private service: QrcExportService) {}
+  isSerieValid(s: number | undefined): number | undefined {
+    if (typeof s === 'undefined' || isNaN(s))  {
+      this.msgAlert('Não é permitido')
+      return 0
+    }
+    return s
+  }
 
 
   ngOnInit(): void {
-    this.service.listar().subscribe((listaGostos) => {
-      this.listaGostos = listaGostos;
-    })
-  }
-
-  verifySerie(): boolean {
-    if (typeof this.obj.serie !== 'number' || isNaN(this.obj.serie)) {
-      alert("Digite apenas números");
-      return false;
-    }
-    return true;
+    // this.service.listar().subscribe((listaGostos) => {
+    //   this.listaGostos = listaGostos;
+    // })
   }
 
   adicionar() {
@@ -49,7 +63,16 @@ export class GetExportComponent implements OnInit {
   }
 
   limpar() {
-    this.gostos.serie = '';
+    this.gostos.serie = undefined;
     this.gostos.jogo = '';
+  }
+
+  msgAlert(msg: string) {
+    this.opMessage = [
+      {
+        severity: 'alert',
+        detail: msg
+      }
+    ]
   }
 }
