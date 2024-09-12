@@ -48,19 +48,4 @@ describe('GetExportComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
-
-  it('should call msgAlert if serie is NaN', () => {
-    component.gostos = { jogo: '', serie: 'invalid' as any }; // Invalid serie input
-    component.verifyInputs();
-    fixture.detectChanges();
-    expect(component.msgAlert).toHaveBeenCalledWith('Não é permitido');
-  });
-
-  it('should call msgAlert with "Não é permitido" if serie is not a number and jogo is null', () => {
-    component.gostos = { jogo: '', serie: 'invalid' as any };
-    component.verifyInputs();
-    fixture.detectChanges();
-    expect(component.opMessage.length).toBe(1);
-    expect(component.opMessage[0].detail).toBe('Não é permitido');
-  });
 });

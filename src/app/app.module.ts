@@ -17,6 +17,8 @@ import { InputIconModule } from 'primeng/inputicon';
 import { PanelModule } from 'primeng/panel';
 import { provideHttpClient } from '@angular/common/http';
 import { MessagesModule } from 'primeng/messages';
+import { InputNumberModule } from 'primeng/inputnumber';
+import { TableModule } from 'primeng/table';
 
 @NgModule({
   declarations: [
@@ -35,7 +37,9 @@ import { MessagesModule } from 'primeng/messages';
     IconFieldModule,
     InputIconModule,
     PanelModule,
-    MessagesModule
+    MessagesModule,
+    InputNumberModule,
+    TableModule
   ],
   providers: [
     provideHttpClient(),

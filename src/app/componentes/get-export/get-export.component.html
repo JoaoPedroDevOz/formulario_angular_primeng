@@ -1,9 +1,8 @@
 <p-messages [(value)]="opMessage"></p-messages>
 
 <p-panel header="ExportarQrC">
-  <div class="panel">
-    <div class="panel-input_main">
-
+  <table>
+    <td>
       <div class="panel-input_section">
         <span>
           <label for="Serie">Série Favorita</label>
@@ -12,14 +11,15 @@
           <p-inputGroupAddon>
               <i class="pi pi-search"></i>
           </p-inputGroupAddon>
-          <input
-          pInputText
+          <p-inputNumber
           [(ngModel)]="gostos.serie"
           placeholder="Série"
-          style="width: 100%;" />
+          inputStyleClass="gostoSerie"
+          />
         </p-inputGroup>
       </div>
-
+    </td>
+    <td>
       <div class="panel-input_section">
         <span>
           <label for="Jogo">Jogo Favorito</label>
@@ -28,31 +28,29 @@
           <p-inputGroupAddon >
               <i class="pi pi-search"></i>
           </p-inputGroupAddon>
-          <input pInputText
+          <input
+          pInputText
           [(ngModel)]="gostos.jogo"
-          placeholder="Jogo" style="width: 100%;" />
+          placeholder="Jogo"/>
         </p-inputGroup>
       </div>
-    </div>
-
-    <div class="panel-input_ou">
-      <span>
-        OU
-      </span>
-    </div>
-
-    <div class="panel-button_section">
-      <button
-      pButton
-      pRipple
-      (click)="limpar()"
-      label="Limpar">
-    </button>
-    <p-button
-    (onClick)="verifyInputs()"
-    label="Submit"></p-button>
-    </div>
-  </div>
+    </td>
+    <td>
+      <div class="panel-input_main">
+        <div class="panel-button_section">
+          <button
+          pButton
+          pRipple
+          (click)="limpar()"
+          label="Limpar">
+        </button>
+        <p-button
+        (onClick)="verifyInputs()"
+        label="Submit"></p-button>
+        </div>
+      </div>
+    </td>
+  </table>
 
   <p-panel>
     <div class="panel-input_section" *ngFor="let gostos of listaGostos">

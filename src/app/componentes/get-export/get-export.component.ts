@@ -34,22 +34,8 @@ export class GetExportComponent implements OnInit {
       return
     }
 
-    if (isNaN(this.gostos.serie ?? 0)) {
-      this.msgAlert('Não é permitido')
-    }
-
-
     console.log(this.gostos);
   }
-
-  isSerieValid(s: number | undefined): number | undefined {
-    if (typeof s === 'undefined' || isNaN(s))  {
-      this.msgAlert('Não é permitido')
-      return 0
-    }
-    return s
-  }
-
 
   ngOnInit(): void {
     // this.service.listar().subscribe((listaGostos) => {
